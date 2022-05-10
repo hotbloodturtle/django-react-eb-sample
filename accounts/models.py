@@ -29,7 +29,6 @@ class User(AbstractBaseUser):
     class Meta:
         verbose_name = '회원'
         verbose_name_plural = verbose_name
-        db_table = 'auth_user'
 
     objects = UserManager()
 
