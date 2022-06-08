@@ -2,6 +2,10 @@ branch-defaults:
   main:
     environment: aquanode-v2
     group_suffix: null
+environment-defaults:
+  aquanode-v2:
+    branch: null
+    repository: null
 global:
   application_name: aquanode-v2
   branch: null
