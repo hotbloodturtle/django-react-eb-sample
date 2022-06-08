@@ -39,6 +39,12 @@ class User(AbstractBaseUser):
     def is_staff(self):
         return self.is_superuser
 
+    def has_perm(self, perm, obj=None):
+        return self.is_superuser
+
+    def has_module_perms(self, app_label):
+        return self.is_superuser
+
     username = models.CharField('아이디', max_length=255, unique=True)
     email = models.EmailField('이메일', max_length=255, blank=True)
     is_active = models.BooleanField('활성 상태', default=True)
