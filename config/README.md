@@ -55,3 +55,13 @@ eb deploy
 배포 완료후 (웹 열때)
 eb open
 ```
+
+```python
+elasticbeanstalk ssh server 정보
+
+서버 내의 코드 경로
+/var/app/current
+
+서버 내에서 가상환경 실행
+source /var/app/venv/*/bin/activate
+```
