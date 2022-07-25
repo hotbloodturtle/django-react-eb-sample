@@ -7,7 +7,8 @@ from pathlib import Path
 
 
 # server mode, allow
-DEBUG = True if os.getenv('SERVER_MODE') == 'dev' else False
+SERVER_MODE = os.getenv('SERVER_MODE', 'DEV')
+DEBUG = True if SERVER_MODE == 'DEV' else False
 ALLOWED_HOSTS = ['*']
 
 # path
@@ -16,8 +17,9 @@ CONFIG_SETTINGS_COMMON_FILE = os.path.join(BASE_DIR, 'secret.json')
 FRONT_PATH = 'frontend'
 
 # env
-CONFIG_SECRET = {} if DEBUG else json.loads(open(CONFIG_SETTINGS_COMMON_FILE).read())
-SECRET_KEY = CONFIG_SECRET.get('SECRET_KEY') or ''.join(random.choices(string.ascii_uppercase + string.digits, k=30))
+CONFIG_SECRETS: dict = json.loads(open(CONFIG_SETTINGS_COMMON_FILE).read())
+CONFIG_SECRET = CONFIG_SECRETS.get(SERVER_MODE, {})
+SECRET_KEY = CONFIG_SECRET.get('SECRET_KEY', ''.join(random.choices(string.ascii_uppercase + string.digits, k=30)))
 DB_NAME = CONFIG_SECRET.get('DB_NAME', 'aquanode_dev')
 DB_USER = CONFIG_SECRET.get('DB_USER', 'root')
 DB_PASSWORD = CONFIG_SECRET.get('DB_PASSWORD', '')
