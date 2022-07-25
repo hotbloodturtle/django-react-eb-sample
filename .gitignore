@@ -30,3 +30,4 @@ __pycache__/
 .env
 .idea/
 static_files/
+secret.json
