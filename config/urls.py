@@ -1,3 +1,5 @@
+import os
+
 from django.contrib import admin
 from django.urls import path, re_path
 from django.views.generic import TemplateView
@@ -7,7 +9,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('alive', lambda request: HttpResponse("I'm alive...")),
+    path('alive', lambda request: HttpResponse(f"I'm alive... {os.environ.get('SERVER_MODE')}")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
