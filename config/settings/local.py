@@ -3,7 +3,7 @@ from .base import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aquanode_dev',
+        'NAME': 'mydb_dev',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

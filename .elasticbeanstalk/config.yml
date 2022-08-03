@@ -1,13 +1,13 @@
 branch-defaults:
   main:
-    environment: aquanode-v2
+    environment: my-app
     group_suffix: null
 environment-defaults:
-  aquanode-v2:
+  my-app:
     branch: null
     repository: null
 global:
-  application_name: aquanode-v2
+  application_name: my-app
   branch: null
   default_ec2_keyname: aws-eb
   default_platform: Python 3.8 running on 64bit Amazon Linux 2
